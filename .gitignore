@@ -2,6 +2,12 @@
 __pycache__/
 *.py[cod]
 *$py.class
+train/
+train_*/
+validate/
+predict/
+uwsgi*
+*.sock
 
 # C extensions
 *.so
