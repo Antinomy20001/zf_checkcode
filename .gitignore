@@ -8,7 +8,7 @@ validate/
 predict/
 uwsgi*
 *.sock
-
+.idea/
 # C extensions
 *.so
 

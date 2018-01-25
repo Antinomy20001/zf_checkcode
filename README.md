@@ -1,2 +1,2 @@
 # zf_checkcode
-基于mnis_cnn的正方教务管理系统验证码识别模型
+基于mnist_cnn的正方教务管理系统验证码识别模型
