@@ -9,8 +9,7 @@ import os
 import cv2
 import random
 
-index = {'x': 2, 'l': 11, 'j': 4, 't': 22, '5': 27, '0': 18, 'e': 5, 'k': 16, 'y': 28, 'f': 19, 's': 1, 'h': 12, 'n': 25, 'a': 23, 'm': 9, 'c': 14,
-         'p': 7, 'd': 26, 'v': 31, '3': 6, '1': 8, '8': 29, '4': 13, 'r': 10, '6': 24, 'u': 20, 'q': 15, 'w': 17, '7': 21, '2': 32, 'i': 0, 'g': 30, 'b': 3}
+index = {'0': 0,'1': 1,'2': 2,'3': 3,'4': 4,'5': 5,'6': 6,'7': 7,'8': 8,'a': 9,'b': 10,'c': 11,'d': 12,'e': 13,'f': 14,'g': 15,'h': 16,'i': 17,'j': 18,'k': 19,'l': 20,'m': 21,'n': 22,'p': 23,'q': 24,'r': 25,'s': 26,'t': 27,'u': 28,'v': 29,'w': 30,'x': 31,'y': 32}
 
 clses = [0] * 33
 for k, v in index.items():
@@ -39,7 +38,7 @@ test_daragen = ImageDataGenerator(
 )
 
 train_generator = train_datagen.flow_from_directory(
-    'validate',
+    'train',
     target_size=(img_rows, img_cols),
     batch_size=batch_size,
     class_mode='categorical',
@@ -47,7 +46,7 @@ train_generator = train_datagen.flow_from_directory(
     # classes=index
 )
 test_generator = train_datagen.flow_from_directory(
-    'train',
+    'validate',
     target_size=(img_rows, img_cols),
     batch_size=batch_size,
     class_mode='categorical',
@@ -80,17 +79,4 @@ model.fit_generator(
 print(train_generator.class_indices)
 print(test_generator.class_indices)
 
-predict_gen = ImageDataGenerator(
-    rescale=1./255
-)
-predict_generator = predict_gen.flow_from_directory(
-    'predict',
-    target_size=(img_rows, img_cols),
-    batch_size=batch_size,
-    class_mode='categorical',
-    color_mode='grayscale',
-)
-print(model.predict_generator(
-    predict_generator
-))
-model.save('y1.h5')
+model.save('ok.h5')

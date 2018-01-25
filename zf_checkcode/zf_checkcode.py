@@ -21,7 +21,7 @@ app = Flask(__name__)
 
 def init():
     import os
-    path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'final.h5')
+    path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'ok.h5')
     model = load_model(path)
     graph = tf.get_default_graph()
     return model, graph
